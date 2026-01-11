@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tawanda Mariri | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0a0a0a;
+  --text:#fff;
+  --primary:#00e5ff;
+  --gray:#aaa;
+  --glass:rgba(255,255,255,0.08);
+  --border:rgba(255,255,255,0.2);
+}
+.light{
+  --bg:#f2f2f2;
+  --text:#111;
+  --primary:#0066ff;
+  --glass:rgba(255,255,255,0.6);
+  --border:rgba(255,255,255,0.9);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);transition:.4s}
+
+/* NAV */
+header{
+  position:fixed;top:0;width:100%;
+  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,.6);
+  z-index:1000;
+}
+nav{
+  max-width:1200px;margin:auto;
+  padding:15px 20px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+nav h2{color:var(--primary)}
+nav ul{list-style:none;display:flex;align-items:center}
+nav ul li a{margin-left:20px;text-decoration:none;color:var(--text)}
+nav ul li a:hover{color:var(--primary)}
+.toggle{cursor:pointer;margin-left:20px}
+
+/* GENERAL */
+section{padding:100px 20px;animation:fadeUp 1s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+.section-title{text-align:center;margin-bottom:50px}
+.section-title span{color:var(--primary)}
+
+.glass{
+  background:var(--glass);
+  border:1px solid var(--border);
+  backdrop-filter:blur(15px);
+  border-radius:20px;
+  padding:30px;
+  transition:.4s;
+}
+.glass:hover{transform:translateY(-6px);box-shadow:0 0 25px var(--primary)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center}
+.hero-content{max-width:1100px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.hero img{
+  width:280px;height:280px;border-radius:50%;
+  border:5px solid var(--primary);
+  animation:glow 3s infinite alternate
+}
+@keyframes glow{
+  from{box-shadow:0 0 15px var(--primary)}
+  to{box-shadow:0 0 40px var(--primary)}
+}
+.hero h1{font-size:3rem}
+.hero h3{height:40px;margin-top:10px}
+
+.dev{color:#00e5ff}.design{color:#ff4081}.tech{color:#ffc107}.net{color:#4caf50}
+
+.buttons a{
+  display:inline-block;margin-top:20px;margin-right:15px;
+  padding:12px 28px;border-radius:30px;text-decoration:none
+}
+.cv{border:2px solid var(--primary);color:var(--primary)}
+.cv:hover{background:var(--primary);color:#000}
+.hire{background:var(--primary);color:#000}
+
+/* ABOUT */
+.about-text{
+  max-width:900px;margin:auto;text-align:center;
+  line-height:1.8;color:var(--gray)
+}
+
+/* PROJECTS */
+.project-grid{
+  display:grid;
+  gap:25px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+.project-img{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+  border-radius:18px;
+  overflow:hidden;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.project-img img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transition:.4s;
+}
+.project-img::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.7),rgba(0,0,0,.2));
+}
+.project-title{
+  position:absolute;
+  bottom:18px;
+  left:18px;
+  z-index:2;
+  font-weight:600;
+}
+.project-img:hover img{transform:scale(1.05)}
+.project-img:hover{box-shadow:0 0 30px var(--primary)}
+
+/* CONTACT */
+.contact-wrapper{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+.contact-photo{
+  position:relative;
+  width:260px;
+  height:260px;
+  margin:auto;
+}
+.contact-photo img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  position:relative;
+  z-index:2;
+}
+.contact-photo::before{
+  content:"";
+  position:absolute;
+  inset:-12px;
+  border-radius:50%;
+  background:conic-gradient(var(--primary), transparent, var(--primary));
+  animation:spin 6s linear infinite;
+}
+@keyframes spin{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+.contact-info{
+  color:var(--gray);
+  line-height:1.8;
+}
+
+/* SKILLS */
+.skills-container{
+  display:grid;
+  gap:40px;
+  max-width:1100px;
+  margin:auto;
+}
+.skill-category{
+  display:grid;
+  gap:20px;
+}
+.skill-category h3{
+  color:var(--primary);
+  text-align:center;
+  margin-bottom:15px;
+}
+.skill-bar{
+  height:15px;
+  width:100%;
+  background:#222;
+  border-radius:20px;
+  overflow:hidden;
+}
+.skill-bar span{
+  display:block;
+  height:100%;
+  width:0%;
+  background:var(--primary);
+  border-radius:20px;
+  transition:2s;
+}
+
+/* CIRCLE SKILLS */
+.circle-skill{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  margin:auto;
+  font-weight:bold;
+  color:var(--text);
+  position:relative;
+  transition:.3s;
+}
+.circle-skill:hover{
+  transform:scale(1.1);
+  filter:drop-shadow(0 0 10px var(--primary));
+}
+.circle-skill svg{
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  transform:rotate(-90deg);
+}
+.circle-skill circle{
+  fill:none;
+  stroke-width:8;
+  stroke-linecap:round;
+}
+.circle-bg{stroke:rgba(0,229,255,0.2);}
+.circle-progress{stroke:var(--primary);stroke-dasharray:314;stroke-dashoffset:314;transition:stroke-dashoffset 2s;}
+
+/* Percentage number at top */
+.circle-skill .percent{
+  position:absolute;
+  top:10%;
+  font-weight:bold;
+  font-size:0.85rem;
+  text-align:center;
+}
+
+/* Skill name below */
+.circle-skill span{
+  position:absolute;
+  bottom:10%;
+  text-align:center;
+  font-size:0.8rem;
+  font-weight:600;
+}
+
+/* MODAL */
+.modal{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;align-items:center;justify-content:center;
+  z-index:2000;
+}
+.modal-content{
+  background:var(--glass);
+  border:1px solid var(--border);
+  backdrop-filter:blur(20px);
+  border-radius:20px;
+  max-width:600px;
+  padding:30px;
+}
+.modal-content img{width:100%;border-radius:15px;margin-bottom:15px}
+.close{position:absolute;top:20px;right:25px;font-size:2rem;cursor:pointer}
+
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;bottom:20px;right:20px;
+  background:#25D366;color:#fff;
+  padding:15px;border-radius:50%;
+  font-size:1.5rem;
+  box-shadow:0 0 20px #25D366;
+}
+
+footer{text-align:center;padding:20px;color:var(--gray)}
+
+@media(max-width:768px){
+  .hero-content,.contact-wrapper,.skills-container{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<h2>Tawanda</h2>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+<li class="toggle" onclick="toggleTheme()">🌙</li>
+</ul>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<div class="hero-content">
+<div>
+<h1>Tawanda Mariri</h1>
+<h3 id="roleText"></h3>
+<p>Developer • Graphics Designer • Technician • Network Administrator</p>
+<div class="buttons">
+<a href="cv.PDF" download class="cv">Download CV</a>
+<a href="#contact" class="hire">Hire Me</a>
+</div>
+</div>
+<img src="tawa.png">
+</div>
+</section>
+
+<section id="about">
+<div class="section-title"><h2>About <span>Me</span></h2></div>
+<div class="about-text">
+I am a versatile and results-driven professional combining software development,
+graphic design, technical support, and network administration.
+I build reliable systems, visually compelling designs, and secure infrastructure
+that solve real business problems.
+</div>
+</section>
+
+<section id="skills">
+<div class="section-title"><h2>My <span>Skills</span></h2></div>
+<div class="skills-container">
+
+<!-- PROGRAMMING -->
+<div class="glass skill-category">
+<h3>Programming Languages</h3>
+<div>
+<p>C++</p>
+<div class="skill-bar"><span data-width="80%"></span></div>
+</div>
+<div>
+<p>VB.Net</p>
+<div class="skill-bar"><span data-width="70%"></span></div>
+</div>
+<div>
+<p>Python</p>
+<div class="skill-bar"><span data-width="60%"></span></div>
+</div>
+<div>
+<p>React</p>
+<div class="skill-bar"><span data-width="55%"></span></div>
+</div>
+<div>
+<p>Django</p>
+<div class="skill-bar"><span data-width="60%"></span></div>
+</div>
+<div>
+<p>JavaScript</p>
+<div class="skill-bar"><span data-width="75%"></span></div>
+</div>
+<div>
+<p>PHP</p>
+<div class="skill-bar"><span data-width="80%"></span></div>
+</div>
+<div>
+<p>CSS</p>
+<div class="skill-bar"><span data-width="90%"></span></div>
+</div>
+<div>
+<p>C#</p>
+<div class="skill-bar"><span data-width="65%"></span></div>
+</div>
+</div>
+
+<!-- DATABASE -->
+<div class="glass skill-category">
+<h3>Databases</h3>
+<div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;">
+<div class="circle-skill" data-percent="85"><div class="percent">0%</div><svg><circle class="circle-bg" cx="60" cy="60" r="50"></circle><circle class="circle-progress" cx="60" cy="60" r="50"></circle></svg><span>MySQL</span></div>
+<div class="circle-skill" data-percent="75"><div class="percent">0%</div><svg><circle class="circle-bg" cx="60" cy="60" r="50"></circle><circle class="circle-progress" cx="60" cy="60" r="50"></circle></svg><span>Xampp</span></div>
+<div class="circle-skill" data-percent="70"><div class="percent">0%</div><svg><circle class="circle-bg" cx="60" cy="60" r="50"></circle><circle class="circle-progress" cx="60" cy="60" r="50"></circle></svg><span>Laragon</span></div>
+</div>
+</div>
+
+<!-- SOFTWARES -->
+<div class="glass skill-category">
+<h3>Software Tools</h3>
+<div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;">
+<div class="circle-skill" data-percent="90"><div class="percent">0%</div><svg><circle class="circle-bg" cx="60" cy="60" r="50"></circle><circle class="circle-progress" cx="60" cy="60" r="50"></circle></svg><span>Adobe Photoshop</span></div>
+<div class="circle-skill" data-percent="95"><div class="percent">0%</div><svg><circle class="circle-bg" cx="60" cy="60" r="50"></circle><circle class="circle-progress" cx="60" cy="60" r="50"></circle></svg><span>Microsoft Office</span></div>
+<div class="circle-skill" data-percent="85"><div class="percent">0%</div><svg><circle class="circle-bg" cx="60" cy="60" r="50"></circle><circle class="circle-progress" cx="60" cy="60" r="50"></circle></svg><span>Corel Draw</span></div>
+<div class="circle-skill" data-percent="80"><div class="percent">0%</div><svg><circle class="circle-bg" cx="60" cy="60" r="50"></circle><circle class="circle-progress" cx="60" cy="60" r="50"></circle></svg><span>AutoCAD</span></div>
+<div class="circle-skill" data-percent="70"><div class="percent">0%</div><svg><circle class="circle-bg" cx="60" cy="60" r="50"></circle><circle class="circle-progress" cx="60" cy="60" r="50"></circle></svg><span>Quickbooks</span></div>
+<div class="circle-skill" data-percent="90"><div class="percent">0%</div><svg><circle class="circle-bg" cx="60" cy="60" r="50"></circle><circle class="circle-progress" cx="60" cy="60" r="50"></circle></svg><span>Visual Studio</span></div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="projects">
+<div class="section-title"><h2>My <span>Projects</span></h2></div>
+
+<!-- Graphic Design Projects -->
+<div class="glass">
+<h3>Graphic Design Projects</h3>
+<div class="project-grid">
+<div class="project-img" onclick="openModal('logo.png','Logo Design','Expert in logo design')">
+<img src="logo.png"><div class="project-title">Logo Design</div></div>
+<div class="project-img" onclick="openModal('zv.jpeg','Poster & Flyer Designs','Promotional poster designs')">
+<img src="zv.jpeg"><div class="project-title">Poster & Flyer Designs</div></div>
+<div class="project-img" onclick="openModal('bttc.jpg','Flyer Design','Creative flyer layout')">
+<img src="bttc.jpg"><div class="project-title">Flyer Design</div></div>
+</div>
+</div>
+
+<!-- Programming Projects -->
+<div class="glass" style="margin-top:40px;">
+<h3>Programming Projects</h3>
+<div class="project-grid">
+<div class="project-img" onclick="openModal('tp.png','Personal Portfolio','Developed using HTML, CSS, JavaScript')">
+<img src="tp.png"><div class="project-title">Personal Portifolio</div></div>
+<div class="project-img" onclick="openModal('stud.png','Machine Learning','Python-based Student Dropout Prediction System')">
+<img src="stud.png"><div class="project-title">Student Dropout Prediction System</div></div>
+<div class="project-img" onclick="openModal('doc.png','Doctor Appointment System','PHP, JavaScript, HTML, CSS, MySQL web project')">
+<img src="doc.png"><div class="project-title">Doctor Appointment System</div></div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="section-title"><h2>Contact <span>Me</span></h2></div>
+<div class="contact-wrapper">
+<div class="contact-photo"><img src="t1.jpeg"></div>
+<div class="glass contact-info">
+<p>📧 <strong>Email:</strong> tawandabmariri@gmail.com</p>
+<p>📱 <strong>WhatsApp:</strong> 0776840680/ 0772747533</p>
+<p>📍 <strong>Location:</strong> 1632 Lusaka, Highfield, Harare, Zimbabwe</p>
+</div>
+</div>
+</section>
+
+<footer>© 2026 Tawanda Mariri</footer>
+<a href="https://wa.me/263776840680" class="whatsapp" target="_blank">💬</a>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <img id="modalImg">
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+  </div>
+</div>
+
+<script>
+// ROTATING ROLES
+const roles=['<span class="dev">Developer</span>','<span class="design">Graphics Designer</span>','<span class="tech">Technician</span>','<span class="net">Network Administrator</span>'];
+let roleIndex=0;
+const roleEl=document.getElementById('roleText');
+setInterval(()=>{
+  roleEl.innerHTML=roles[roleIndex];
+  roleIndex=(roleIndex+1)%roles.length;
+},2000);
+
+// MODAL
+function openModal(img,title,desc){
+  document.getElementById('modalImg').src=img;
+  document.getElementById('modalTitle').innerText=title;
+  document.getElementById('modalDesc').innerText=desc;
+  document.getElementById('modal').style.display='flex';
+}
+function closeModal(){
+  document.getElementById('modal').style.display='none';
+}
+
+// THEME TOGGLE
+function toggleTheme(){
+  document.body.classList.toggle('light');
+}
+
+// SKILLS ANIMATION
+let animated=false;
+window.addEventListener('scroll',()=>{
+  const section = document.getElementById('skills');
+  const sectionPos = section.getBoundingClientRect().top;
+  const screenHeight = window.innerHeight;
+  if(sectionPos < screenHeight - 100 && !animated){
+    // Linear bars
+    document.querySelectorAll('.skill-bar span').forEach(bar=>{
+      bar.style.width=bar.getAttribute('data-width');
+    });
+
+    // Circular skills
+    document.querySelectorAll('.circle-skill').forEach(circle=>{
+      const percent=parseInt(circle.getAttribute('data-percent'));
+      const progress=circle.querySelector('.circle-progress');
+      const radius=progress.r.baseVal.value;
+      const circumference=2*Math.PI*radius;
+      progress.style.strokeDasharray=circumference;
+      progress.style.strokeDashoffset=circumference;
+      setTimeout(()=>{progress.style.strokeDashoffset=circumference - (circumference*percent/100)},100);
+
+      // Animate number inside circle
+      const number=circle.querySelector('.percent');
+      let count=0;
+      const interval=setInterval(()=>{
+        if(count>=percent){clearInterval(interval);}
+        number.textContent=count+'%';
+        count++;
+      },20);
+    });
+
+    animated=true;
+  }
+});
+</script>
+
+</body>
+</html>
